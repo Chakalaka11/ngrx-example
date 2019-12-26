@@ -1,8 +1,6 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { TodoModel } from '../models/todo.model';
 
-export const addItem = createAction('[Todo Component] Add Item');
-export const removeItem = createAction('[Todo Component] Remove Item');
-export const checkIn = createAction('[Todo Component] Check In');
-export const checkOut = createAction('[Todo Component] Check Out');
-export const updatePosition = createAction('[Todo Component] Update Position');
-export const updateInfo = createAction('[Todo Component] Update Info');
+export const addItem = createAction('[Todo Component] Add Item', props<{ payload: TodoModel }>());
+export const removeItem = createAction('[Todo Component] Remove Item', props<{ payload: number }>());
+export const updateItem = createAction('[Todo Component] Update Item', props<{ payload: TodoModel }>());

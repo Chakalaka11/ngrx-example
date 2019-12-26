@@ -3,7 +3,7 @@ import { TodoState } from '../models/todo.state.model';
 
 function getStateFromLocalStorage(): TodoState {
     var storedValue: TodoState = JSON.parse(localStorage.getItem(environment.localStorageKey));
-    return storedValue;
+    return storedValue || { todoList: [] };
 }
 
 function setLocalStorage(value: TodoState) {

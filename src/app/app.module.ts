@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter-state/counter.reducer';
+import { todoReducer } from './counter-state/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { counterReducer } from './counter-state/counter.reducer';
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      testStore: counterReducer
+      todoStore: todoReducer
       // structure is 
       // stateName: stateReducer
     })

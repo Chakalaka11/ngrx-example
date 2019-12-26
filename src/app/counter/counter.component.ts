@@ -1,33 +1,40 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from '../counter-state/counter.actions';
+import { addItem, removeItem } from '../counter-state/counter.actions';
+import { TodoModel } from '../models/todo.model';
+import { TodoState } from '../models/todo.state.model';
 
 @Component({
     selector: 'counter',
     templateUrl: './counter.template.html',
     styles: []
 })
+
 export class CounterComponent {
-    counterValue: Observable<number>;
+    todoState: Observable<TodoState>;
 
     constructor(
-        private store: Store<{ testStore: number }>) {
-        this.counterValue = store.pipe(select('testStore'));
+        private store: Store<{ todoStore: TodoState }>) {
+        this.todoState = store.pipe(select('todoStore'));
     }
 
-    increment() {
-        console.log(increment);
-        this.store.dispatch(increment());
+    addElement() {
+        var model: TodoModel = new TodoModel("", 0);
+        this.store.dispatch(addItem({ payload: model }));
+    }
+    
+    removeElement() {
+        this.store.dispatch(removeItem({ payload: 1 }));
     }
 
-    decrement() {
-        console.log(decrement);
-        this.store.dispatch(decrement());
-    }
+    // decrement() {
+    //     console.log(decrement);
+    //     this.store.dispatch(decrement());
+    // }
 
-    clear() {
-        console.log(reset);
-        this.store.dispatch(reset());
-    }
+    // clear() {
+    //     console.log(reset);
+    //     this.store.dispatch(reset());
+    // }
 }
