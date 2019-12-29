@@ -1,9 +1,0 @@
-<input type="button" (click)="addElement()" value="Add Element"/>
-
-<input type="button" (click)="removeElement()" value="Remove Element"/>
-
-<div class="" *ngFor="let todoItem of (todoState | async).todoList">
-    <div>{{todoItem.position}}</div>
-    <div>{{todoItem.information}}</div>
-    <div>{{todoItem.isChecked}}</div>
-</div>

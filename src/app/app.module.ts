@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter.component';
+import { CounterComponent } from './components';
 
 import { StoreModule } from '@ngrx/store';
-import { todoReducer } from './counter-state/counter.reducer';
+import { todoReducer } from './states';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { todoReducer } from './counter-state/counter.reducer';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot({
       todoStore: todoReducer
       // structure is 

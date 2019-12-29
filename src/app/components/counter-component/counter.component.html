@@ -1,0 +1,15 @@
+<input [(ngModel)]="taskDescription" type="text" placeholder="Enter your task here..." />
+<input type="button" (click)="addElement()" value="Add Element" />
+
+<div class="todo-list">
+    <div class="todo-item" *ngFor="let todoItem of (todoState | async).todoList">
+        <div class="todo-item__text">{{todoItem.information}}</div>
+        <div>
+            <input class="todo-item__checkbox" type="checkbox" />
+            {{todoItem.isChecked}}
+        </div>
+        <div>
+            <input type="button" (click)="removeElement(todoItem)" value="Remove Element" />
+        </div>
+    </div>
+</div>
