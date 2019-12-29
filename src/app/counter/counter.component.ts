@@ -7,7 +7,7 @@ import { TodoState } from '../models/todo.state.model';
 
 @Component({
     selector: 'counter',
-    templateUrl: './counter.template.html',
+    templateUrl: './counter.component.html',
     styles: []
 })
 
